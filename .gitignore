@@ -14,10 +14,10 @@
 target/
 
 # Intellij
+.idea/
 *.ipr
 *.iml
 *.iws
-.idea/
 
 # Package Files #
 *.jar
