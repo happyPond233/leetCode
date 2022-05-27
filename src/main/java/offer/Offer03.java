@@ -58,7 +58,7 @@ public class Offer03 {
         }
         return 0;
     }
-    //test提交作者
+    //test提交作者1
     public int bestResult(int[] nums){
         int i = 0;
         while (i < nums.length){
