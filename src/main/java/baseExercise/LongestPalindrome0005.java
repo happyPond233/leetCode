@@ -72,18 +72,18 @@ public class LongestPalindrome0005 {
         return right - left;
     }
 
-    //中心扩散法
-    public static String betterResult(String s){
-        if (s.length() < 2){
-            return s;
-        }
-        int head = 0;
-        int tail = 0;
-        int length = 0;
-        for (int i = 0; i < s.length(); i++) {
-            judge(s,i);
-        }
-    }
+    //中心扩散法 时间复杂度一样 理解就可
+//    public static String betterResult(String s){
+//        if (s.length() < 2){
+//            return s;
+//        }
+//        int head = 0;
+//        int tail = 0;
+//        int length = 0;
+//        for (int i = 0; i < s.length(); i++) {
+//            judge(s,i);
+//        }
+//    }
 
     public static void main(String[] args) {
         String str1 = "bb";
