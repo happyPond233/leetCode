@@ -41,6 +41,7 @@ public class LongestPalindrome0005 {
         for (int i = 0; i < s.length(); i++) {
             for (int j = s.length(); j > i ; j--) {
                 //截取字符串会有性能消耗
+                //性能提升一倍 但是依然不够快
 //                String str = s.substring(i, j);
                 if (resultLength > j - i){
                     break;
@@ -69,6 +70,19 @@ public class LongestPalindrome0005 {
             }
         }
         return right - left;
+    }
+
+    //中心扩散法
+    public static String betterResult(String s){
+        if (s.length() < 2){
+            return s;
+        }
+        int head = 0;
+        int tail = 0;
+        int length = 0;
+        for (int i = 0; i < s.length(); i++) {
+            judge(s,i);
+        }
     }
 
     public static void main(String[] args) {
