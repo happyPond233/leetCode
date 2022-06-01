@@ -3,7 +3,7 @@ package baseExercise;
 /**
  * 给你一个字符串 s，找到 s 中最长的回文子串。
  *
- *  
+ *   
  *
  * 示例 1：
  *
@@ -14,7 +14,7 @@ package baseExercise;
  *
  * 输入：s = "cbbd"
  * 输出："bb"
- *  
+ *   
  *
  * 提示：
  *

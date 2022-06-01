@@ -1,9 +1,9 @@
 package baseExercise;
 
 /**
- * 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
+ * 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行  Z 字形排列。
  *
- * 比如输入字符串为 "PAYPALISHIRING" 行数为 3 时，排列如下：
+ * 比如输入字符串为 "PAYPALISHIRING"  行数为 3 时，排列如下：
  *
  * P   A   H   N
  * A P L S I I G
@@ -13,7 +13,7 @@ package baseExercise;
  * 请你实现这个将字符串进行指定行数变换的函数：
  *
  * string convert(string s, int numRows);
- *  
+ *   
  *
  * 示例 1：
  *
@@ -31,7 +31,7 @@ package baseExercise;
  *
  * 输入：s = "A", numRows = 1
  * 输出："A"
- *  
+ *   
  *
  * 提示：
  *
