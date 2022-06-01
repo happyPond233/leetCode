@@ -6,7 +6,7 @@ package baseExercise;
  * 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
  *
  * 例如，121 是回文，而 123 不是。
- *  
+ *
  *
  * 示例 1：
  *
@@ -22,12 +22,12 @@ package baseExercise;
  * 输入：x = 10
  * 输出：false
  * 解释：从右向左读, 为 01 。因此它不是一个回文数。
- *  
+ *
  *
  * 提示：
  *
  * -231 <= x <= 231 - 1
- *  
+ *
  *
  * 进阶：你能不将整数转为字符串来解决这个问题吗？
  *
@@ -41,8 +41,38 @@ package baseExercise;
  * @date : 2022/6/1 20:15
  */
 public class PalindromeNumber0009 {
-    public boolean isPalindrome(int x) {
-
+    public static boolean isPalindrome(int x) {
+        if (x < 0){
+            return false;
+        }
+        if (x % 10 == x){
+            return true;
+        }
+        int aX = 0;
+        int lowNumber = 0;
+        int time = 0;
+        while (x > 0){
+            if (aX == x){
+                return true;
+            }
+            lowNumber = x % 10;
+            if (lowNumber == 0 && time == 0){
+                return false;
+            }
+            x = x / 10;
+            if (aX == x){
+                return true;
+            }
+            aX = aX * 10 + lowNumber;
+            time++;
+        }
         return false;
     }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(10));
+        System.out.println(isPalindrome(101));
+        System.out.println(isPalindrome(21120));
+    }
+
 }
