@@ -41,8 +41,37 @@ package baseExercise;
  * @date : 2022/6/1 20:15
  */
 public class PalindromeNumber0009 {
-    public boolean isPalindrome(int x) {
-
+    public static boolean isPalindrome(int x) {
+        if (x < 0){
+            return false;
+        }
+        if (x % 10 == x){
+            return true;
+        }
+        int aX = 0;
+        int lowNumber = 0;
+        int time = 0;
+        while (x > 0){
+            if (aX == x){
+                return true;
+            }
+            lowNumber = x % 10;
+            if (lowNumber == 0 && time == 0){
+                return false;
+            }
+            x = x / 10;
+            if (aX == x){
+                return true;
+            }
+            aX = aX * 10 + lowNumber;
+            time++;
+        }
         return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(10));
+        System.out.println(isPalindrome(101));
+        System.out.println(isPalindrome(21120));
     }
 }
