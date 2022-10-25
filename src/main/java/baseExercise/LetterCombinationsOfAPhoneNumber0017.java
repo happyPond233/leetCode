@@ -1,8 +1,7 @@
 package baseExercise;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author : Jason.ma
@@ -10,19 +9,22 @@ import java.util.List;
  */
 public class LetterCombinationsOfAPhoneNumber0017 {
     public List<String> letterCombinations(String digits) {
-        String[] strings = new String[digits.length()];
-        int size = 1;
-        for (int i = 0; i < strings.length; i++) {
-            strings[i] = getLetter(digits.charAt(i));
-            size = size * strings[i].length();
+        Set<String> result = new HashSet<>();
+        for (int i = 0; i < digits.length(); i++) {
+            String letter = getLetter(digits.charAt(i));
+            HashSet<String> newR = new HashSet<>();
+            for (int j = 0; j < letter.length(); j++) {
+                if (result.isEmpty()){
+                    newR.add(String.valueOf(letter.charAt(j)));
+                }else {
+                    for (String s : result) {
+                        newR.add(s + letter.charAt(j));
+                    }
+                }
+            }
+            result = newR;
         }
-        String[] result = new String[size];
-
-        for (int i = 0; i < strings.length; i++) {
-            String string = strings[i];
-
-        }
-        return null;
+        return result.stream().collect(Collectors.toList());
     }
 
     private String getLetter(char ch) {
@@ -49,6 +51,8 @@ public class LetterCombinationsOfAPhoneNumber0017 {
 
     public static void main(String[] args) {
         LetterCombinationsOfAPhoneNumber0017 test0017 = new LetterCombinationsOfAPhoneNumber0017();
-        test0017.letterCombinations("23");
+        System.out.println(test0017.letterCombinations("23"));
+        System.out.println(test0017.letterCombinations("2"));
+        System.out.println(test0017.letterCombinations(""));
     }
 }
