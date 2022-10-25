@@ -8,33 +8,27 @@ import java.util.Arrays;
  */
 public class ThreeSumClosest0016 {
     public static int threeSumClosest(int[] nums, int target) {
-        int result = Integer.MAX_VALUE;
-        int minDValue = Integer.MAX_VALUE;
-
+        int result = nums[0] + nums[1] + nums[2];
         //1.排序
         Arrays.sort(nums);
-        int head = 0;
-        int tail = nums.length - 1;
-        while (head < tail - 1){
-            int threeSum = 0;
-            int dValue = 0;
-            int headNum  = nums[head];
-            int tailNum = nums[tail];
-            //2.遍历查找最小值
-            for (int i = head + 1; i < tail; i++) {
-                int num = nums[i];
-                threeSum = headNum + tailNum + num;
-                dValue = Math.abs(threeSum - target);
-                if (dValue < minDValue){
-                    minDValue = dValue;
-                    result = threeSum;
+        //2.遍历查找最接近
+        for (int i = 0; i < nums.length; i++) {
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right){
+                int newR = nums[i] + nums[left] + nums[right];
+                //新值更接近就替换result
+                if (Math.abs(newR - target) < Math.abs(result - target)){
+                    result = newR;
                 }
-            }
-            if (head == tail - 2){
-                head = 0;
-                tail--;
-            }else {
-                head++;
+                //判断是移动left还是right
+                if (newR < target){
+                    left++;
+                } else if (newR > target){
+                    right--;
+                } else {
+                    return newR;
+                }
             }
         }
         return result;
